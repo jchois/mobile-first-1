@@ -1,0 +1,432 @@
+/********************\
+  $Reset ☰
+\********************/
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  padding:0;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+button{
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+}
+a {
+  text-decoration:none;
+}
+/********************\
+  $Layout ☰
+\********************/
+
+/*Damos estilos al menú*/
+.header-sec{
+	width: auto;
+	height: 120px;
+}
+.content{
+	width: 940px;
+	margin: 0 auto;
+	display: flex;
+}
+
+.blue-box{
+	width: 940px;
+	margin: 15px 0 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.logo{
+	width: 400px;
+}
+.butt-header{
+	background: url(images/magnifier.png) no-repeat;
+
+	background-position: 150px 13px; 
+	border: none;
+	margin: 0 0 50px 10px;
+	background-color: #f2f3f7;
+	width: 175px;
+	height: 40px;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 0 0 0 5px;
+}
+.nav {
+  position:absolute;
+  width:250px;
+  height:100vh;
+  top:0;
+  left:-270px; /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos sobre la hamburguesa*/
+  padding-top:47px;
+  background-color: rgba(29, 33, 32, 1);
+  border-right:4px solid #dfe7e4;
+  transition:all .5s ease; /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
+}
+   /*Estilos de los li del menú*/
+   .nav__item {
+     display:block;
+     width:96%;
+     margin:0 auto;
+     line-height:2;
+     position:relative; /*Le damos una posición relativa para posteriormente añadirle el triangulo que indica que se está en la página actual del menú*/
+     border-bottom:.5px solid rgba(59, 62, 61, 1);
+     border-top:.5px solid rgba(59, 62, 61, 1);
+     background-color:transparent;
+     font-family: 'Lato', sans-serif;
+     font-size: 30px;
+     text-align:center;
+     color:#dee7e4;
+   }
+       /*Damos colocamos el triangulo negro a la pestaña del menú dónde nos encontramos actualmente*/
+       .current:before {
+          content:"";
+          width:0;
+          height:0;
+          position:absolute; /*Le damos al before una posición absoluta relativa al li que lo contiene*/
+          border-top:17px solid transparent;
+          border-left:15px solid #1D2120;
+          border-bottom:17px solid transparent;
+          top:0px;
+          right:-15px; /*Lo posicionamos -15px a la derecha de su contenedor*/
+          z-index:4; /*le otorgamos un z-index alto para que se posicione arriba de otros elementeos*/
+       }
+      /*Colocamos el borde verde al triangulo por medio de otro trangulo verde*/
+      .current:after {
+          content:"";
+          width:0;
+          height:0;
+          position:absolute;/*Le damos al after una posición absoluta relativa al li que lo contiene*/
+          border-top:16.5px solid transparent;
+          border-left:17px solid #dfe7e4;
+          border-bottom:17px solid transparent;
+          top:.5px;
+          right:-21px;
+          z-index:1;  /*le otorgamos un z-index bajo para que se posicione debajo del trinagulo negro*/
+      }
+  /*Estos son los estilos de la hamburguesa del menú que abre y cierra el mismo*/
+  .menu-toogle {
+    position:absolute; /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+    width: 80px;
+    line-height:1.1;
+    text-align:center;
+    top: 30px; /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+    left: 8px; 
+    border-radius:3px;
+    background-color: transparent;
+    transition: all .5s ease; /*Añadimos una transición para que realice un desplazamineto suave*/
+    z-index:10;
+  }
+    /*Añadimos la haburguesa y le damos unos estilos*/
+    .menu-toogle::before {
+      content:"☰";
+      font-size:60px;
+      color:#142b25;
+    }
+
+    /*Estos son los estilos que le dan la funcionalidad al menú*/
+    /*El checkbox según esté activado o no hará que el menú aparezca o desaparezca*/
+    .checkbox {
+      display:none; /*Ocultamos el checkbox pues no nos interesa que se vea*/
+    }
+    .checkbox:checked ~ .nav {
+      left:0px; /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+      position:fixed; /* Fijamos el menú lateral para que se desplace cuando hagamos scroll*/
+    }
+    .checkbox:checked ~ .main-w {
+      margin-left:200px; /*Cuando el checkbox asigna un margen al contenedor principal para que se desplace junto con el menú*/
+    }
+    .checkbox:checked ~ .menu-toogle { 
+      left:258px;
+      position:fixed; /*Fijamos la hamburgues para que se desplace junto con el menú*/
+    }
+
+ /*		section 1	*/
+
+ .section1{
+ 	margin: 15px 0 0 0;
+ 	width: auto;
+ 	height: 612px;
+ 	background-color: #31333f;
+ }
+
+ .cont1{
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	justify-content: center;
+ }
+
+ .we-are{
+	margin: 30px 0 0 0 ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.tittle1{
+	color: white;
+	font-size: 50px;
+}
+.learn-more-b{
+	margin: 40px 0 0 0;
+	width: 250px;
+	height: 60px;
+	border-radius: 5px;
+	background-color: #26aefe;
+	font-size: 35px;
+	color: white;
+}
+
+.slides{
+	margin: 60px 0 0 0;
+	display: flex;
+	flex-direction: row;
+}
+
+/*	section 2	*/
+
+.section2{
+	margin: 30px 0 0 0;
+	width: auto;
+	height: 900px;
+}
+
+.sec2{
+	margin: 40px 0 0 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.web-design{
+	margin: 50px 0 0 0;
+	width: 650px;
+	height: 400px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.social-media{
+	margin: 180px 0 0 0;
+}
+.titu{
+	margin: 0 0 -20px 0;
+	font-size: 50px;
+	color: #626262;
+}
+.info{
+	margin: 40px 0 0 0;
+	color: #3d3d48;
+	line-height: 35px;
+    font-size: 40px;
+    width: 650px;
+}
+.read-more{
+	margin: -20px 0 0 0;
+}
+.img-web-design{
+	margin: 50px 0 0 0;
+}
+.read-more-b{
+	margin: 250px 0 0 0;
+	width: 200px;
+	height: 50px;
+	color: #26aefe;
+	background-color: transparent;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/*	section 3	*/
+
+.section3{
+	margin: 900px 0 0 0;
+	width: auto;
+	height: 200px;
+	background-color: #e2e7ed;
+}
+.sec3{
+	margin: 0;
+	width: 100%;
+	height: 1100px;
+	background-color:  #e2e7ed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.tittle2{
+	margin: 30px 0;
+	font-size: 35px;
+	color: #626262;
+}
+h2{
+	margin: 0;
+}
+.imagenes{
+	width: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.img-hover{
+	width: 300px;
+	height: 220px;
+}
+
+/* hover */
+
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 220px;
+}
+.after{
+	padding: 0 0 0 15px
+}
+.button-hover{
+	margin: 85px 0 0 -15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.button-hover1{
+	display: inherit;
+}
+.but-ho{
+	background-color: #1d8bcc;
+	width: 60px;
+	height: 40px;
+}
+.image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 220px;
+    display: none;
+    color: #FFF;
+}
+.image-container:hover .after {
+    display: block;
+    background: #26aefe;
+}
+
+/* fin hover */
+
+/* 		section 4	 	*/
+
+.section4{
+	margin: 900px 0 0 0;
+	width: auto;
+	height: 280px;
+}
+
+.sec4{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.img-sec4{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+footer{
+	width: auto;
+	height: 300px;
+	background-color: #31333f;
+}
+.sec5{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.info{
+	margin: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.nav2{
+	margin: 30px 0 0 0;
+}
+.info-foo{
+	margin: 55px 0 0 0;
+}
+.a2{
+	margin-right: 25px;
+	color: #aeaeae;
+	font-size: 23px;
+}
+.a2:hover{
+	color: #26aefe;
+	border-radius: 8px;
+}
+
+.ul2{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	cursor: pointer;
+	display: flex;
+	align-items: flex-start;
+}
+.li{
+	margin: 0;
+}
+.pru{
+	font-size: 70px;
+	margin: 0 0 0 10px;
+}
+.redso{
+	width: 70px;
+	height: 70px;
+}
+.fa-facebook-square{
+	color: #3b5795; 
+}
+.fa-linkedin{
+	color: #136dc0;
+}
+.fa-twitter-square{
+	color: #2dc5f6;
+}
+.fa-pinterest-square{
+	color: #c50e12;
+}
+.fa-google-plus-square{
+	color: #d13d30;
+}
+.social{
+	margin: 30px 0 0 0;
+}
+/*
+.social{
+	margin: 20px 0 0 0;
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}*/
+
